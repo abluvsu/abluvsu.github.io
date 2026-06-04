@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // Theme Toggle functionality
 function initThemeToggle() {
   const toggleBtn = document.getElementById('theme-toggle');
+  if (!toggleBtn) return; // FIX: Prevent crash if button doesn't exist on page
+  
   const savedTheme = localStorage.getItem('theme');
   const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
   
