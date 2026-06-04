@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCustomCursor();
   initMagneticElements();
   initParallax();
+  initROICalculator();
 });
 
 // Theme Toggle functionality
@@ -121,4 +122,66 @@ function initParallax() {
       el.style.transform = `translateY(${scrollY * speed}px)`;
     });
   }, { passive: true });
+}
+
+// ROI Calculator Logic
+function initROICalculator() {
+  const submissionsInput = document.getElementById('submissions');
+  const salaryInput = document.getElementById('salary');
+  const timeInput = document.getElementById('time');
+  const automationInput = document.getElementById('automation');
+  const automationVal = document.getElementById('automation-val');
+  
+  const outSavings = document.getElementById('out-savings');
+  const outHours = document.getElementById('out-hours');
+  const outTtq = document.getElementById('out-ttq');
+
+  if (!submissionsInput) return; // Only run on pibit page
+
+  function formatCurrency(num) {
+    if (num >= 1000000) return '$' + (num / 1000000).toFixed(1) + 'M';
+    if (num >= 1000) return '$' + (num / 1000).toFixed(0) + 'K';
+    return '$' + num.toLocaleString();
+  }
+
+  function formatNumber(num) {
+    if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+    return Math.floor(num).toString();
+  }
+
+  function calculate() {
+    const subs = parseFloat(submissionsInput.value) || 0;
+    const salary = parseFloat(salaryInput.value) || 0;
+    const time = parseFloat(timeInput.value) || 0;
+    const autoGain = parseFloat(automationInput.value) || 0;
+
+    automationVal.textContent = `${autoGain}% Time Saved`;
+
+    // 1. Hours Reclaimed = Total Manual Hours * Automation %
+    const totalManualHours = subs * time;
+    const hoursSaved = totalManualHours * (autoGain / 100);
+
+    // 2. Savings = (Hours Saved / 2000 hours per FTE) * Avg Salary
+    const fteSaved = hoursSaved / 2000;
+    const directSavings = fteSaved * salary;
+
+    // 3. TTQ Acceleration (Synthetic metric based on automation)
+    // If you save 70% of time, TTQ velocity increases by ~ (1 / (1 - 0.7)) - 1
+    const ttqBoost = Math.min((1 / (1 - (autoGain / 100))) - 1, 9.99); // Cap at 999%
+    const ttqPercentage = Math.floor(ttqBoost * 100);
+
+    // Render outputs
+    outSavings.textContent = formatCurrency(directSavings);
+    outHours.textContent = formatNumber(hoursSaved);
+    outTtq.textContent = `+${ttqPercentage}%`;
+  }
+
+  // Event Listeners
+  submissionsInput.addEventListener('input', calculate);
+  salaryInput.addEventListener('input', calculate);
+  timeInput.addEventListener('input', calculate);
+  automationInput.addEventListener('input', calculate);
+
+  // Initial Calculation
+  calculate();
 }
