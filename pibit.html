@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pibit.ai | Decision Layer Prototype</title>
+  <meta name="description" content="Strategic teardown and Python prototype for Pibit.ai RiskCURE.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .code-block {
+      background-color: #111;
+      padding: var(--space-md);
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #00ff00; /* Terminal green for terminal output */
+      white-space: pre;
+    }
+    .json-block {
+      color: #a3b8cc; /* Soft blue for JSON */
+    }
+  </style>
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand magnetic">AB.</a>
+      <div class="nav__links hide-mobile">
+        <a href="index.html#work" class="nav__link magnetic">Back to Work</a>
+      </div>
+      <button id="theme-toggle" class="theme-toggle magnetic">[LIGHT MODE]</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" style="min-height: 70vh; padding-bottom: 0;">
+    <div class="container" style="display: flex; flex-direction: column; justify-content: center; padding-top: var(--space-xl);">
+      <div class="reveal" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
+        <div style="width: 50px; height: 2px; background-color: var(--accent);"></div>
+        <p class="mono" style="text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-secondary); font-size: 0.85rem;">Proof of Work 02</p>
+      </div>
+      <h1 class="hero__title reveal delay-1 parallax" data-speed="0.1" style="font-size: clamp(3rem, 10vw, 10rem); line-height: 0.85; margin-bottom: var(--space-md);">PIBIT.AI</h1>
+      <p class="body-large reveal delay-2 parallax" data-speed="0.05" style="max-width: 800px; color: var(--text-secondary);">The Decision Layer Prototype: Turning DocumentCURE extractions into automated underwriting risk intelligence.</p>
+    </div>
+  </header>
+
+  <!-- Strategy Section -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2">
+        <div class="reveal">
+          <h2 class="section-title" style="font-size: 3rem;">THE THESIS</h2>
+        </div>
+        <div class="reveal delay-1">
+          <p class="body-normal" style="margin-bottom: var(--space-md);">Pibit.ai's DocumentCURE is highly capable of parsing unstructured ACORD forms into JSON. But extraction is quickly becoming a commodity war among AI startups.</p>
+          <p class="body-normal" style="margin-bottom: var(--space-md);">The true defensible moat is the <strong>Decision Layer</strong> (RiskCURE). Having managed 63L+ policies at ICICI Prudential, I know underwriters don't just want clean data—they want to know if they should <em>write the risk</em>.</p>
+          <p class="body-normal">I built a Python prototype that simulates this exact decision layer. It ingests the JSON, cross-references 5 critical property underwriting vectors, and automatically flags compound risks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Code Section -->
+  <section class="section" style="background-color: rgba(0,0,0,0.3); border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="mono section-number">[ EXECUTION ]</span>
+        <h2 class="section-title" style="font-size: 3rem;">THE PROTOTYPE</h2>
+      </div>
+      
+      <div class="grid-2">
+        <!-- Input JSON -->
+        <div class="reveal">
+          <h4 class="mono" style="margin-bottom: 1rem; color: var(--accent);">01 // Extracted JSON (The Input)</h4>
+          <div class="code-block json-block">
+{
+  "document_type": "ACORD_140_PROPERTY",
+  "applicant_details": {
+    "business_name": "Apex Manufacturing"
+  },
+  "property_details": {
+    "location": { "distance_to_coast_miles": 1.2 },
+    "construction": {
+      "year_built": 1985,
+      "roof_age_years": 18
+    }
+  },
+  "loss_history": [
+    {
+      "type": "Water Damage (Roof Leak)",
+      "amount_paid": 45000
+    }
+  ]
+}
+          </div>
+          <p class="mono" style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.75rem;">Simulated output from DocumentCURE parsing an ACORD 140.</p>
+        </div>
+
+        <!-- Output Terminal -->
+        <div class="reveal delay-1">
+          <h4 class="mono" style="margin-bottom: 1rem; color: var(--accent);">02 // Engine Output (The Decision)</h4>
+          <div class="code-block">
+============================================================
+PIBIT.AI RiskCURE™ | DECISION ENGINE PROTOTYPE
+Target Account: Apex Manufacturing Solutions
+============================================================
+FINAL RISK SCORE: 20/100
+SYSTEM RECOMMENDATION: DECLINE OR REFER TO SENIOR UNDERWRITER
+
+--- RISK FLAGS IDENTIFIED ---
+- HIGH RISK: Roof age is 18 years (Exceeds 15yr threshold).
+- MODERATE RISK: Building is 41 years old. Ensure updates.
+- CRITICAL RISK: Property is 1.2 miles from coast. Mandatory windstorm exclusion required.
+- HIGH RISK: Prior losses total $45,000.00.
+- CRITICAL RISK: Prior roof leak claim + Roof > 15 years old. High probability of recurring loss.
+- MODERATE RISK: Fire alarm is not centrally monitored.
+
+--- OPERATOR MEMO ---
+By codifying these specific underwriting heuristics, we save 
+the human underwriter 45 minutes of manual cross-referencing.
+============================================================
+          </div>
+          <p class="mono" style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.75rem;">Terminal output generated by the Python scoring script.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="footer-huge" style="font-size: clamp(3rem, 8vw, 8rem);">READY TO SCALE.</h2>
+      </div>
+      <div class="footer-links reveal delay-1">
+        <div>
+          <a href="mailto:ashutosh.bhandekar.pro@gmail.com" class="footer-link magnetic">Email Me</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
