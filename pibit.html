@@ -3,242 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pibit.ai | GTM Expansion Deck</title>
-  <meta name="description" content="Strategic GTM Teardown for Pibit.ai: Bypassing the Enterprise InfoSec trap via the MGA Wedge.">
+  <title>The Honest Truth | Ashutosh Bhandekar</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Deck-specific CSS */
-    .deck-container {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-xl);
-      padding: var(--space-xl) 0;
-    }
-    .slide {
-      background-color: #111;
-      border: 1px solid var(--border-color);
+    .retract-container {
+      max-width: 800px;
+      margin: 20vh auto;
+      padding: 2rem;
+      border: 1px solid var(--accent);
+      background-color: rgba(0,0,0,0.8);
       border-radius: 8px;
-      padding: var(--space-lg);
-      position: relative;
-      overflow: hidden;
-    }
-    .slide::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 4px; height: 100%;
-      background-color: var(--accent);
-    }
-    .slide-number {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .slide-title {
-      font-size: 2.5rem;
-      margin-bottom: var(--space-sm);
-      line-height: 1.1;
-    }
-    .slide-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-md);
-      margin-top: var(--space-md);
-    }
-    .slide-point {
-      background: rgba(255,255,255,0.03);
-      padding: 1.5rem;
-      border-radius: 4px;
-    }
-    .slide-point h4 {
-      font-family: var(--font-mono);
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-      color: #fff;
-    }
-    @media (max-width: 768px) {
-      .slide-content { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <div class="cursor"></div>
 
-  <nav class="nav">
-    <div class="container nav__inner">
-      <a href="index.html" class="nav__brand magnetic">AB.</a>
-      <div class="nav__links hide-mobile">
-        <a href="index.html#work" class="nav__link magnetic">Back to Work</a>
-      </div>
-    </div>
-  </nav>
+  <div class="container retract-container reveal">
+    <h1 class="mono" style="color: var(--accent); font-size: 1rem; letter-spacing: 0.1em; margin-bottom: 1rem;">[ A RETRACTION ]</h1>
+    <h2 style="font-size: 2.5rem; margin-bottom: 2rem; line-height: 1.1;">Akash, I took the ROI Calculator down. Here is the raw truth.</h2>
+    
+    <p class="body-normal" style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+      Earlier today, I sent you a cold email with a link to a slick ROI Calculator and an "Enterprise GTM Deck" claiming I managed a 63 Lakh+ policy dataset at ICICI Prudential.
+    </p>
+    
+    <p class="body-normal" style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+      I built it to get your attention, but it was corporate fluff. If I want to be your Chief of Staff, I can't start the relationship with inflated stats. 
+    </p>
 
-  <header class="hero" style="min-height: 60vh; padding-bottom: 0;">
-    <div class="container" style="display: flex; flex-direction: column; justify-content: center; padding-top: var(--space-xl);">
-      <div class="reveal" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
-        <div style="width: 50px; height: 2px; background-color: var(--accent);"></div>
-        <p class="mono" style="text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-secondary); font-size: 0.85rem;">Confidential Teardown</p>
-      </div>
-      <h1 class="hero__title reveal delay-1 parallax" data-speed="0.1" style="font-size: clamp(3rem, 8vw, 8rem); line-height: 0.85; margin-bottom: var(--space-md);">PIBIT.AI</h1>
-      <p class="body-large reveal delay-2 parallax" data-speed="0.05" style="max-width: 800px; color: var(--text-secondary);">GTM Expansion Deck: Bypassing the 18-month enterprise procurement death cycle via the MGA Wedge.</p>
-    </div>
-  </header>
+    <p class="body-normal" style="color: #fff; margin-bottom: 1.5rem; border-left: 2px solid var(--accent); padding-left: 1rem;">
+      <strong>Here is the absolute truth:</strong><br><br>
+      For the last 2 years, I automated MIS reports and data workflows at ICICI Prudential using Python and SQL. I was good enough at it that the processes began running themselves. Two weeks ago, on May 20th, the company transferred me to sales because they didn't know what to do with me.<br><br>
+      I am quitting in 30 days.
+    </p>
 
-  <section class="section">
-    <div class="container deck-container">
-      
-      <!-- Slide 1 -->
-      <div class="slide reveal">
-        <span class="slide-number">01 // THE BOTTLENECK</span>
-        <h2 class="slide-title">The Enterprise Gauntlet</h2>
-        <p class="body-normal" style="color: var(--text-secondary);">Direct sales to Tier-1 carriers (like ICICI Prudential) face a massive operational mismatch. You are selling agentic AI velocity into a 30-year-old mainframe architecture.</p>
-        <div class="slide-content">
-          <div class="slide-point">
-            <h4>The 18-Month Cycle</h4>
-            <p class="body-small">Procurement must pass Head of UW, Chief Risk Officer, InfoSec, and IT Infra. A single "data exfiltration" red flag in InfoSec pauses the deal for 6 months.</p>
-          </div>
-          <div class="slide-point">
-            <h4>The Legacy Trap</h4>
-            <p class="body-small">Underwriters live in AS400 or heavily customized Guidewire instances. They will reject any tool that introduces "dashboard fatigue" outside their core system.</p>
-          </div>
-        </div>
-      </div>
+    <p class="body-normal" style="color: var(--text-secondary); margin-bottom: 2rem;">
+      I know RiskCURE deals with massive amounts of messy carrier data. I don't ask for a salary upfront. Give me the ugliest operational bottleneck your team is facing right now. I will work on it for free for the next two weeks on my nights and weekends. If I fix it, we talk about a role. If I fail, you got free labor.
+    </p>
 
-      <!-- Slide 2 -->
-      <div class="slide reveal delay-1">
-        <span class="slide-number">02 // THE THESIS</span>
-        <h2 class="slide-title">Why AI Pilots Die</h2>
-        <p class="body-normal" style="color: var(--text-secondary);">Founders sell "99% extraction accuracy." Enterprise buyers don't care about accuracy; they care about Time-to-Quote (TTQ) and Implementation Friction.</p>
-        <div class="slide-content">
-          <div class="slide-point">
-            <h4>The Accuracy Illusion</h4>
-            <p class="body-small">Even at 99% accuracy, enterprise compliance mandates a human-in-the-loop review. The cost savings on extraction alone do not justify the integration nightmare.</p>
-          </div>
-          <div class="slide-point">
-            <h4>The Real Moat</h4>
-            <p class="body-small">The value isn't DocumentCURE (extraction); it's RiskCURE (decisioning). Shifting the pitch from "data entry replacement" to "loss ratio reduction" changes the buyer from IT to the CRO.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="slide reveal delay-1">
-        <span class="slide-number">03 // THE STRATEGY</span>
-        <h2 class="slide-title">The MGA Wedge</h2>
-        <p class="body-normal" style="color: var(--text-secondary);">Stop doing direct enterprise carrier sales. Pivot GTM to target Managing General Agents (MGAs) and Aggregators to accelerate Gross Written Premium (GWP) processing.</p>
-        <div class="slide-content">
-          <div class="slide-point">
-            <h4>Speed to Market</h4>
-            <p class="body-small">MGAs lack Tier-1 InfoSec blockers. Sales cycles drop from 18 months to 3 months. MGAs operate on volume and margins, making TTQ a C-level priority.</p>
-          </div>
-          <div class="slide-point">
-            <h4>The Trojan Horse</h4>
-            <p class="body-small">Once Pibit.ai owns the MGA layer, carriers (who rely on MGAs for distribution) are forced to ingest RiskCURE data natively, bypassing carrier procurement entirely.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 4 -->
-      <div class="slide reveal delay-1">
-        <span class="slide-number">04 // EXECUTION</span>
-        <h2 class="slide-title">Implementation Playbook</h2>
-        <p class="body-normal" style="color: var(--text-secondary);">How to deploy RiskCURE without triggering a core system replacement.</p>
-        <div class="slide-content">
-          <div class="slide-point">
-            <h4>Pre-Quote Triage API</h4>
-            <p class="body-small">Do not attempt deep Guidewire integration on day 1. Deploy via a lightweight API that scores submissions *before* they enter the core system, routing only clean risks to the human underwriter.</p>
-          </div>
-          <div class="slide-point">
-            <h4>On-Premise Guarantees</h4>
-            <p class="body-small">Package the LLM architecture in a SOC2 Type II compliant VPC that guarantees zero training on carrier data. This kills the InfoSec objection on call #1.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ROI Calculator Section -->
-  <section class="section" style="background-color: rgba(0,0,0,0.5); border-top: 1px solid var(--border-color);">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="mono section-number">[ THE WEAPON ]</span>
-        <h2 class="section-title" style="font-size: 3rem;">ENTERPRISE ROI CALCULATOR</h2>
-        <p class="body-normal" style="color: var(--text-secondary); max-width: 600px; margin-top: 1rem;">A dynamic sales tool for Pibit.ai Account Executives to prove the P&L impact of RiskCURE to a CFO in real-time.</p>
-      </div>
-
-      <div class="grid-2" style="gap: var(--space-xl);">
-        
-        <!-- Calculator Inputs -->
-        <div class="reveal">
-          <div style="background: rgba(255,255,255,0.02); padding: 2rem; border: 1px solid var(--border-color); border-radius: 8px;">
-            <h4 class="mono" style="margin-bottom: 1.5rem; color: var(--accent);">01 // INPUT PARAMETERS</h4>
-            
-            <div style="margin-bottom: 1.5rem;">
-              <label for="submissions" style="display: block; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 0.5rem;">Annual Submissions</label>
-              <input type="number" id="submissions" value="50000" style="width: 100%; background: transparent; border: 1px solid var(--border-color); color: #fff; padding: 0.75rem; font-family: var(--font-mono); font-size: 1rem;">
-            </div>
-
-            <div style="margin-bottom: 1.5rem;">
-              <label for="salary" style="display: block; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 0.5rem;">Avg Underwriter Salary ($)</label>
-              <input type="number" id="salary" value="95000" style="width: 100%; background: transparent; border: 1px solid var(--border-color); color: #fff; padding: 0.75rem; font-family: var(--font-mono); font-size: 1rem;">
-            </div>
-
-            <div style="margin-bottom: 1.5rem;">
-              <label for="time" style="display: block; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 0.5rem;">Manual Processing Time per Submission (Hours)</label>
-              <input type="number" id="time" value="2.5" step="0.1" style="width: 100%; background: transparent; border: 1px solid var(--border-color); color: #fff; padding: 0.75rem; font-family: var(--font-mono); font-size: 1rem;">
-            </div>
-
-            <div style="margin-bottom: 1.5rem;">
-              <label for="automation" style="display: block; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 0.5rem;">Pibit Automation Gain (%)</label>
-              <input type="range" id="automation" min="10" max="90" value="70" style="width: 100%; margin-top: 0.5rem;">
-              <span id="automation-val" class="mono" style="display: block; text-align: right; margin-top: 0.25rem; font-size: 0.8rem; color: var(--accent);">70% Time Saved</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Calculator Outputs -->
-        <div class="reveal delay-1">
-          <div style="background: rgba(0,0,0,0.8); padding: 2rem; border: 1px solid var(--accent); border-radius: 8px; height: 100%; display: flex; flex-direction: column; justify-content: center;">
-            <h4 class="mono" style="margin-bottom: 2rem; color: var(--accent);">02 // P&L IMPACT</h4>
-            
-            <div style="margin-bottom: 2rem;">
-              <p class="mono" style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Direct Operational Savings</p>
-              <h2 id="out-savings" style="font-size: 3rem; margin: 0; color: #fff;">$0</h2>
-              <p class="body-small" style="color: var(--accent); margin-top: 0.5rem;">Reduced manual labor costs.</p>
-            </div>
-
-            <div style="margin-bottom: 2rem;">
-              <p class="mono" style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Underwriting Hours Reclaimed</p>
-              <h2 id="out-hours" style="font-size: 2.5rem; margin: 0; color: #fff;">0</h2>
-              <p class="body-small" style="color: var(--accent); margin-top: 0.5rem;">Hours freed for complex risk analysis & broker relations.</p>
-            </div>
-
-            <div>
-              <p class="mono" style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem;">TTQ Acceleration</p>
-              <h2 id="out-ttq" style="font-size: 2.5rem; margin: 0; color: #fff;">0%</h2>
-              <p class="body-small" style="color: var(--accent); margin-top: 0.5rem;">Increase in quote velocity leading to higher bind rates.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="reveal">
-        <h2 class="footer-huge" style="font-size: clamp(2rem, 6vw, 6rem);">OPERATIONAL RIGOR.</h2>
-      </div>
-      <div class="footer-links reveal delay-1">
-        <div>
-          <a href="mailto:ashutosh.bhandekar.pro@gmail.com" class="footer-link magnetic">Email Me</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <a href="mailto:ashutosh.bhandekar.pro@gmail.com" class="magnetic" style="display: inline-block; padding: 1rem 2rem; background: #fff; color: #000; text-decoration: none; font-family: var(--font-mono); font-weight: bold; border-radius: 4px;">REPLY TO MY EMAIL</a>
+  </div>
 
   <script src="script.js"></script>
 </body>
