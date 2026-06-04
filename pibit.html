@@ -3,140 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pibit.ai | Decision Layer Prototype</title>
-  <meta name="description" content="Strategic teardown and Python prototype for Pibit.ai RiskCURE.">
+  <title>Pibit.ai | GTM Expansion Deck</title>
+  <meta name="description" content="Strategic GTM Teardown for Pibit.ai: Bypassing the Enterprise InfoSec trap via the MGA Wedge.">
   <link rel="stylesheet" href="style.css">
   <style>
-    .code-block {
+    /* Deck-specific CSS */
+    .deck-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xl);
+      padding: var(--space-xl) 0;
+    }
+    .slide {
       background-color: #111;
-      padding: var(--space-md);
-      border-radius: 4px;
       border: 1px solid var(--border-color);
-      overflow-x: auto;
+      border-radius: 8px;
+      padding: var(--space-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .slide::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background-color: var(--accent);
+    }
+    .slide-number {
       font-family: var(--font-mono);
       font-size: 0.85rem;
-      color: #00ff00; /* Terminal green for terminal output */
-      white-space: pre;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: block;
     }
-    .json-block {
-      color: #a3b8cc; /* Soft blue for JSON */
+    .slide-title {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-sm);
+      line-height: 1.1;
+    }
+    .slide-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+    }
+    .slide-point {
+      background: rgba(255,255,255,0.03);
+      padding: 1.5rem;
+      border-radius: 4px;
+    }
+    .slide-point h4 {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      .slide-content { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <!-- Custom Cursor -->
   <div class="cursor"></div>
 
-  <!-- Navigation -->
   <nav class="nav">
     <div class="container nav__inner">
       <a href="index.html" class="nav__brand magnetic">AB.</a>
       <div class="nav__links hide-mobile">
         <a href="index.html#work" class="nav__link magnetic">Back to Work</a>
       </div>
-      <button id="theme-toggle" class="theme-toggle magnetic">[LIGHT MODE]</button>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="hero" style="min-height: 70vh; padding-bottom: 0;">
+  <header class="hero" style="min-height: 60vh; padding-bottom: 0;">
     <div class="container" style="display: flex; flex-direction: column; justify-content: center; padding-top: var(--space-xl);">
       <div class="reveal" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
         <div style="width: 50px; height: 2px; background-color: var(--accent);"></div>
-        <p class="mono" style="text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-secondary); font-size: 0.85rem;">Proof of Work 02</p>
+        <p class="mono" style="text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-secondary); font-size: 0.85rem;">Confidential Teardown</p>
       </div>
-      <h1 class="hero__title reveal delay-1 parallax" data-speed="0.1" style="font-size: clamp(3rem, 10vw, 10rem); line-height: 0.85; margin-bottom: var(--space-md);">PIBIT.AI</h1>
-      <p class="body-large reveal delay-2 parallax" data-speed="0.05" style="max-width: 800px; color: var(--text-secondary);">The Decision Layer Prototype: Turning DocumentCURE extractions into automated underwriting risk intelligence.</p>
+      <h1 class="hero__title reveal delay-1 parallax" data-speed="0.1" style="font-size: clamp(3rem, 8vw, 8rem); line-height: 0.85; margin-bottom: var(--space-md);">PIBIT.AI</h1>
+      <p class="body-large reveal delay-2 parallax" data-speed="0.05" style="max-width: 800px; color: var(--text-secondary);">GTM Expansion Deck: Bypassing the 18-month enterprise procurement death cycle via the MGA Wedge.</p>
     </div>
   </header>
 
-  <!-- Strategy Section -->
   <section class="section">
-    <div class="container">
-      <div class="grid-2">
-        <div class="reveal">
-          <h2 class="section-title" style="font-size: 3rem;">THE THESIS</h2>
-        </div>
-        <div class="reveal delay-1">
-          <p class="body-normal" style="margin-bottom: var(--space-md);">Pibit.ai's DocumentCURE is highly capable of parsing unstructured ACORD forms into JSON. But extraction is quickly becoming a commodity war among AI startups.</p>
-          <p class="body-normal" style="margin-bottom: var(--space-md);">The true defensible moat is the <strong>Decision Layer</strong> (RiskCURE). Having managed 63L+ policies at ICICI Prudential, I know underwriters don't just want clean data—they want to know if they should <em>write the risk</em>.</p>
-          <p class="body-normal">I built a Python prototype that simulates this exact decision layer. It ingests the JSON, cross-references 5 critical property underwriting vectors, and automatically flags compound risks.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Code Section -->
-  <section class="section" style="background-color: rgba(0,0,0,0.3); border-top: 1px solid var(--border-color);">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="mono section-number">[ EXECUTION ]</span>
-        <h2 class="section-title" style="font-size: 3rem;">THE PROTOTYPE</h2>
-      </div>
+    <div class="container deck-container">
       
-      <div class="grid-2">
-        <!-- Input JSON -->
-        <div class="reveal">
-          <h4 class="mono" style="margin-bottom: 1rem; color: var(--accent);">01 // Extracted JSON (The Input)</h4>
-          <div class="code-block json-block">
-{
-  "document_type": "ACORD_140_PROPERTY",
-  "applicant_details": {
-    "business_name": "Apex Manufacturing"
-  },
-  "property_details": {
-    "location": { "distance_to_coast_miles": 1.2 },
-    "construction": {
-      "year_built": 1985,
-      "roof_age_years": 18
-    }
-  },
-  "loss_history": [
-    {
-      "type": "Water Damage (Roof Leak)",
-      "amount_paid": 45000
-    }
-  ]
-}
+      <!-- Slide 1 -->
+      <div class="slide reveal">
+        <span class="slide-number">01 // THE BOTTLENECK</span>
+        <h2 class="slide-title">The Enterprise Gauntlet</h2>
+        <p class="body-normal" style="color: var(--text-secondary);">Direct sales to Tier-1 carriers (like ICICI Prudential) face a massive operational mismatch. You are selling agentic AI velocity into a 30-year-old mainframe architecture.</p>
+        <div class="slide-content">
+          <div class="slide-point">
+            <h4>The 18-Month Cycle</h4>
+            <p class="body-small">Procurement must pass Head of UW, Chief Risk Officer, InfoSec, and IT Infra. A single "data exfiltration" red flag in InfoSec pauses the deal for 6 months.</p>
           </div>
-          <p class="mono" style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.75rem;">Simulated output from DocumentCURE parsing an ACORD 140.</p>
-        </div>
-
-        <!-- Output Terminal -->
-        <div class="reveal delay-1">
-          <h4 class="mono" style="margin-bottom: 1rem; color: var(--accent);">02 // Engine Output (The Decision)</h4>
-          <div class="code-block">
-============================================================
-PIBIT.AI RiskCURE™ | DECISION ENGINE PROTOTYPE
-Target Account: Apex Manufacturing Solutions
-============================================================
-FINAL RISK SCORE: 20/100
-SYSTEM RECOMMENDATION: DECLINE OR REFER TO SENIOR UNDERWRITER
-
---- RISK FLAGS IDENTIFIED ---
-- HIGH RISK: Roof age is 18 years (Exceeds 15yr threshold).
-- MODERATE RISK: Building is 41 years old. Ensure updates.
-- CRITICAL RISK: Property is 1.2 miles from coast. Mandatory windstorm exclusion required.
-- HIGH RISK: Prior losses total $45,000.00.
-- CRITICAL RISK: Prior roof leak claim + Roof > 15 years old. High probability of recurring loss.
-- MODERATE RISK: Fire alarm is not centrally monitored.
-
---- OPERATOR MEMO ---
-By codifying these specific underwriting heuristics, we save 
-the human underwriter 45 minutes of manual cross-referencing.
-============================================================
+          <div class="slide-point">
+            <h4>The Legacy Trap</h4>
+            <p class="body-small">Underwriters live in AS400 or heavily customized Guidewire instances. They will reject any tool that introduces "dashboard fatigue" outside their core system.</p>
           </div>
-          <p class="mono" style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.75rem;">Terminal output generated by the Python scoring script.</p>
         </div>
       </div>
+
+      <!-- Slide 2 -->
+      <div class="slide reveal delay-1">
+        <span class="slide-number">02 // THE THESIS</span>
+        <h2 class="slide-title">Why AI Pilots Die</h2>
+        <p class="body-normal" style="color: var(--text-secondary);">Founders sell "99% extraction accuracy." Enterprise buyers don't care about accuracy; they care about Time-to-Quote (TTQ) and Implementation Friction.</p>
+        <div class="slide-content">
+          <div class="slide-point">
+            <h4>The Accuracy Illusion</h4>
+            <p class="body-small">Even at 99% accuracy, enterprise compliance mandates a human-in-the-loop review. The cost savings on extraction alone do not justify the integration nightmare.</p>
+          </div>
+          <div class="slide-point">
+            <h4>The Real Moat</h4>
+            <p class="body-small">The value isn't DocumentCURE (extraction); it's RiskCURE (decisioning). Shifting the pitch from "data entry replacement" to "loss ratio reduction" changes the buyer from IT to the CRO.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide reveal delay-1">
+        <span class="slide-number">03 // THE STRATEGY</span>
+        <h2 class="slide-title">The MGA Wedge</h2>
+        <p class="body-normal" style="color: var(--text-secondary);">Stop doing direct enterprise carrier sales. Pivot GTM to target Managing General Agents (MGAs) and Aggregators to accelerate Gross Written Premium (GWP) processing.</p>
+        <div class="slide-content">
+          <div class="slide-point">
+            <h4>Speed to Market</h4>
+            <p class="body-small">MGAs lack Tier-1 InfoSec blockers. Sales cycles drop from 18 months to 3 months. MGAs operate on volume and margins, making TTQ a C-level priority.</p>
+          </div>
+          <div class="slide-point">
+            <h4>The Trojan Horse</h4>
+            <p class="body-small">Once Pibit.ai owns the MGA layer, carriers (who rely on MGAs for distribution) are forced to ingest RiskCURE data natively, bypassing carrier procurement entirely.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide reveal delay-1">
+        <span class="slide-number">04 // EXECUTION</span>
+        <h2 class="slide-title">Implementation Playbook</h2>
+        <p class="body-normal" style="color: var(--text-secondary);">How to deploy RiskCURE without triggering a core system replacement.</p>
+        <div class="slide-content">
+          <div class="slide-point">
+            <h4>Pre-Quote Triage API</h4>
+            <p class="body-small">Do not attempt deep Guidewire integration on day 1. Deploy via a lightweight API that scores submissions *before* they enter the core system, routing only clean risks to the human underwriter.</p>
+          </div>
+          <div class="slide-point">
+            <h4>On-Premise Guarantees</h4>
+            <p class="body-small">Package the LLM architecture in a SOC2 Type II compliant VPC that guarantees zero training on carrier data. This kills the InfoSec objection on call #1.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="reveal">
-        <h2 class="footer-huge" style="font-size: clamp(3rem, 8vw, 8rem);">READY TO SCALE.</h2>
+        <h2 class="footer-huge" style="font-size: clamp(2rem, 6vw, 6rem);">OPERATIONAL RIGOR.</h2>
       </div>
       <div class="footer-links reveal delay-1">
         <div>
