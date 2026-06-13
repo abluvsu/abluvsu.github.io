@@ -350,6 +350,7 @@ img { max-width: 100%; display: block; }
 
 .hero-socials {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
   position: relative;
   z-index: 1;
@@ -358,16 +359,17 @@ img { max-width: 100%; display: block; }
 
 .hero-social-link {
   font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-secondary);
+  font-weight: 700;
+  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   position: relative;
+  padding-bottom: 2px;
 }
 
-.hero-social-link:hover { color: var(--accent); }
+.hero-social-link:hover { color: var(--text-primary); }
 
 .hero-social-link::after {
   content: '';
