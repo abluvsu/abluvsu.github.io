@@ -345,8 +345,42 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.1em;
   position: relative;
   z-index: 1;
+  margin-bottom: 2rem;
+}
+
+.hero-socials {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
   margin-bottom: 0;
 }
+
+.hero-social-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.hero-social-link:hover { color: var(--accent); }
+
+.hero-social-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s var(--ease-out);
+}
+
+.hero-social-link:hover::after { width: 100%; }
 
 .title-line {
   display: block;

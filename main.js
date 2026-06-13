@@ -142,11 +142,12 @@ function initHeroAnimations() {
       duration: 1.1,
       ease: 'power4.out',
     }, '-=0.5')
-    // Byline
-    .from('.hero-byline', {
+    // Byline & Socials
+    .from('.hero-byline, .hero-socials', {
       opacity: 0,
       y: 20,
       duration: 0.8,
+      stagger: 0.15,
       ease: 'power3.out',
     }, '-=0.5')
     // Meta items — staggered
