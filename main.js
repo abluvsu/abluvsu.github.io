@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroAnimations();
   initScrollAnimations();
   initStatCounters();
+  initTypewriter();
 });
 
 /* ─── Smooth Scroll (Lenis) ─────────────────────── */
@@ -127,26 +128,25 @@ function initHamburger() {
 function initHeroAnimations() {
   const tl = gsap.timeline({ delay: 2.6 }); // After preloader
 
-  // Hero label
+  // Hero label (typewriter bar)
   tl.from('.hero-label', {
     opacity: 0,
     y: 30,
     duration: 0.8,
     ease: 'power3.out',
   })
-    // Title lines — dramatic reveal
-    .from('.title-line', {
-      yPercent: 130,
+    // Main headline
+    .from('.hero-title', {
       opacity: 0,
+      y: 45,
       duration: 1.1,
-      stagger: 0.18,
       ease: 'power4.out',
     }, '-=0.5')
-    // Subtitle
-    .from('.hero-subtitle', {
+    // Byline
+    .from('.hero-byline', {
       opacity: 0,
-      y: 25,
-      duration: 0.9,
+      y: 20,
+      duration: 0.8,
       ease: 'power3.out',
     }, '-=0.5')
     // Meta items — staggered
@@ -275,4 +275,39 @@ function initStatCounters() {
       },
     });
   });
+}
+/* ─── Typewriter Role Cycler ───────────────────── */
+function initTypewriter() {
+  const el = document.getElementById('typewriter-role');
+  if (!el) return;
+
+  const roles = ['Strategist.', 'Analyst.', 'Builder.'];
+  let current = 0;
+
+  function cycleRole() {
+    const next = (current + 1) % roles.length;
+
+    // Fade + slide out
+    gsap.to(el, {
+      opacity: 0,
+      y: -14,
+      duration: 0.35,
+      ease: 'power2.in',
+      onComplete: () => {
+        el.textContent = roles[next];
+        current = next;
+        // Fade + slide in from below
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 14 },
+          { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
+        );
+      },
+    });
+  }
+
+  // Start cycling after hero animation settles
+  setTimeout(() => {
+    setInterval(cycleRole, 2200);
+  }, 3500);
 }
