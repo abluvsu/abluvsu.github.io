@@ -226,23 +226,6 @@ function initScrollAnimations() {
       }
     );
   }
-
-  // Footer headline
-  const footerHL = document.querySelector('.footer-headline');
-  if (footerHL) {
-    gsap.from(footerHL, {
-      scrollTrigger: {
-        trigger: footerHL,
-        start: 'top 90%',
-        toggleActions: 'play none none none',
-      },
-      opacity: 0,
-      y: 60,
-      scale: 0.95,
-      duration: 1.2,
-      ease: 'power3.out',
-    });
-  }
 }
 
 /* ─── Stat Counter Animation ────────────────────── */
