@@ -208,19 +208,22 @@ function initScrollAnimations() {
   // Work cards — stagger with slight scale
   const workCards = document.querySelectorAll('.work-card');
   if (workCards.length) {
-    gsap.from(workCards, {
-      scrollTrigger: {
-        trigger: '.work-grid',
-        start: 'top 82%',
-        toggleActions: 'play none none none',
-      },
-      opacity: 0,
-      y: 60,
-      scale: 0.97,
-      duration: 0.9,
-      stagger: 0.12,
-      ease: 'power3.out',
-    });
+    gsap.fromTo(workCards,
+      { opacity: 0, y: 60, scale: 0.97 },
+      {
+        scrollTrigger: {
+          trigger: '.work-grid',
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.9,
+        stagger: 0.12,
+        ease: 'power3.out',
+      }
+    );
   }
 
   // Footer headline
