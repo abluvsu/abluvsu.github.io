@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candor — Premium Peer Advisory | Ashutosh Bhandekar</title>
+  <meta name="description" content="Business plan, community design, and failure analysis for Candor — an invite-only peer advisory circle for Bengaluru operators.">
+  <meta name="author" content="Ashutosh Bhandekar">
+  <meta property="og:title" content="Candor — Premium Peer Advisory | Ashutosh Bhandekar">
+  <meta property="og:description" content="Designed a psychology-backed, recurring-revenue peer circle for Bengaluru operators. Built complete GTM, brand, and zero-to-one business model.">
+  <meta property="og:type" content="article">
+  <link rel="canonical" href="https://abluvsu.github.io/candor.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --bg: #0a0600;
+      --bg-2: #110d04;
+      --bg-card: #161008;
+      --text: #f5f0e8;
+      --text-2: #8a7e6d;
+      --text-3: #5a5044;
+      --accent: #ffb442;
+      --accent-dim: rgba(255,180,66,0.12);
+      --border: rgba(255,180,66,0.10);
+      --border-2: rgba(255,180,66,0.22);
+      --font-d: 'Syne', sans-serif;
+      --font-b: 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--accent); color: var(--bg); }
+    ::-webkit-scrollbar { width: 0; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      background: rgba(10,6,0,0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-family: var(--font-d);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-back {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-2);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .nav-back:hover { color: var(--accent); }
+
+    /* ── CONTAINER ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── HERO ── */
+    .case-hero {
+      padding: 9rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .case-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-b);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+    }
+    .case-label-line {
+      width: 24px; height: 1px; background: var(--accent);
+    }
+    .case-title {
+      font-family: var(--font-d);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .case-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-2);
+      max-width: 680px;
+      line-height: 1.6;
+    }
+    .case-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .meta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .meta-label {
+      font-size: 0.7rem;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .meta-value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ── CONTENT ── */
+    .case-body {
+      padding: 5rem 0;
+    }
+    .case-section {
+      margin-bottom: 5rem;
+    }
+    .case-section h2 {
+      font-family: var(--font-d);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+    }
+    .case-section h3 {
+      font-family: var(--font-b);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .case-section p {
+      margin-bottom: 1.5rem;
+      color: var(--text-2);
+    }
+    .case-section ul, .case-section ol {
+      margin-bottom: 2rem;
+      padding-left: 1.2rem;
+      color: var(--text-2);
+    }
+    .case-section li {
+      margin-bottom: 0.5rem;
+    }
+    .case-section strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── BLOCKQUOTE ── */
+    blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 1.5rem 2rem;
+      margin: 2.5rem 0;
+      background: var(--bg-card);
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p {
+      margin: 0;
+      font-family: var(--font-d);
+      font-size: 1.3rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .callout::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 12px 12px 0 0;
+    }
+    .callout h3 { margin-top: 0; margin-bottom: 1rem; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    /* ── TABLES ── */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 2.5rem 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-3);
+      font-weight: 600;
+    }
+    td {
+      font-size: 0.95rem;
+      color: var(--text-2);
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ── FOOTER ── */
+    .case-footer {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .case-footer-author {
+      font-size: 0.85rem;
+      color: var(--text-3);
+    }
+    .case-footer-back {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .case-footer-back:hover {
+      color: var(--text);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .case-title { font-size: 2.2rem; }
+      .case-hero { padding: 7rem 0 3rem; }
+      .case-meta { gap: 1.5rem; flex-direction: column; }
+      .callout { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="index.html" class="nav-brand">AB.</a>
+    <a href="index.html" class="nav-back">Close Case ✕</a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="case-hero">
+    <div class="container">
+      <div class="case-label">
+        <span class="case-label-line"></span> Business Plan Update
+      </div>
+      <h1 class="case-title">Candor — Premium Peer Advisory</h1>
+      <p class="case-subtitle">An invite-only structured peer conversation circle for Bengaluru's operators and founders. Built on validated psychology research.</p>
+      
+      <div class="case-meta">
+        <div class="meta-group">
+          <span class="meta-label">Status</span>
+          <span class="meta-value" style="color: var(--accent);">Pre-launch</span>
+        </div>
+        <div class="meta-group">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Community Design & GTM</span>
+        </div>
+        <div class="meta-group">
+          <span class="meta-label">Target Launch</span>
+          <span class="meta-value">September 2026</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <main class="case-body">
+    <div class="container">
+
+      <!-- Exec Summary -->
+      <div class="callout">
+        <h3>Executive Summary</h3>
+        <p>Candor is an invite-only structured peer conversation circle for Bengaluru's operators, founders, and senior professionals. Built on validated psychology research (Aron 1997, Yalom, YPO Forum methodology).</p>
+        <p><strong>Two-layer monetization:</strong> Discovery circles (₹2,999/session) feeding an annual inner circle (₹75,000/year).</p>
+        <p><strong>Current status:</strong> Pre-launch. Brand built. Protocol validated. Distribution infrastructure under construction. Circle 01 rescheduled to September 2026 once milestone gates are met.</p>
+      </div>
+
+      <!-- Part 1: Business Plan -->
+      <section class="case-section">
+        <h2>Part 1 — Updated Business Plan</h2>
+        
+        <h3>The Problem (Validated)</h3>
+        <p>After 40+ operator interviews, the same sentence surfaced every time:</p>
+        <blockquote>
+          <p>"I have no one honest to think with."</p>
+        </blockquote>
+        <p>Senior operators are surrounded by people who need things from them — teams need certainty, investors need confidence, family needs stability. The actual thinking — the unresolved decisions, the doubts, the complexity — stays private. Existing solutions (therapy, networking, masterminds, coaching) each fail for specific structural reasons.</p>
+        <p><strong>The gap:</strong> A peer-only, structured, no-stakes room for people carrying decision weight.</p>
+
+        <h3>The Product</h3>
+        <p><strong>Layer 1 — Discovery Circle (₹2,999)</strong><br>
+        8 people. One Sunday. 3 hours. Application-screened. Structured 6-phase protocol. Functions as both the product and the vetting filter for the inner circle.</p>
+        <p><strong>Layer 2 — Inner Circle (₹75,000/year)</strong><br>
+        Fixed cohort of 6–8. Monthly facilitated sessions. 12-month arc. Drawn exclusively from discovery circle alumni. This is the primary revenue engine.</p>
+
+        <h3>The Protocol (Research-Backed)</h3>
+        <p>Six phases across 3 hours:</p>
+        <ul>
+          <li><strong>Disruption (20 min)</strong> — Facilitator discloses first.</li>
+          <li><strong>Context Rounds (40 min)</strong> — Escalating reciprocal questions.</li>
+          <li><strong>Issue Presentation (50 min)</strong> — Live problem, experience-only responses.</li>
+          <li><strong>Buffet Break (20 min)</strong> — Unstructured bonding.</li>
+          <li><strong>Deep Closing (40 min)</strong> — Aron level 3 disclosures.</li>
+          <li><strong>Nomination Ritual (10 min)</strong> — Each member nominates 2 for future circles.</li>
+        </ul>
+        <p><em>Research basis: Aron et al. (1997) reciprocal disclosure, Yalom's group therapeutic factors, YPO Forum peer advisory methodology, Dunbar's intimacy layers.</em></p>
+
+        <h3>What Went Wrong in the Launch</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Problem</th>
+                <th>Root Cause</th>
+                <th>Fix</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Zero entries for Circle 01</strong></td>
+                <td>Date set before distribution built</td>
+                <td>Set date only after milestones met</td>
+              </tr>
+              <tr>
+                <td><strong>Cold DMs failed</strong></td>
+                <td>No warm trust to spend</td>
+                <td>Build warm channels first</td>
+              </tr>
+              <tr>
+                <td><strong>LinkedIn reach minimal</strong></td>
+                <td>Account cold, wrong demographic</td>
+                <td>60-day audience rebuild</td>
+              </tr>
+              <tr>
+                <td><strong>No credibility</strong></td>
+                <td>No social proof, no partner</td>
+                <td>Psychologist partner + co-host first</td>
+              </tr>
+              <tr>
+                <td><strong>Wrong timeline</strong></td>
+                <td>18 days for cold channel = impossible</td>
+                <td>90-day build before launch</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>The concept is right. The sequencing was wrong.</strong></p>
+
+        <h3>Corrected Model: Gates Before Launch</h3>
+        <p>Circle 01 happens ONLY when all five gates are cleared:</p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Gate</th>
+                <th>Target</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Psychologist or co-host committed</strong></td>
+                <td>1 person, 5K+ audience</td>
+                <td>In progress</td>
+              </tr>
+              <tr>
+                <td><strong>LinkedIn warm (right demographic)</strong></td>
+                <td>200+ founders/operators following</td>
+                <td>In progress</td>
+              </tr>
+              <tr>
+                <td><strong>Luma waitlist</strong></td>
+                <td>40+ signups</td>
+                <td>0 currently</td>
+              </tr>
+              <tr>
+                <td><strong>LinkedIn posts hitting traction</strong></td>
+                <td>3+ posts at 1,000+ impressions</td>
+                <td>0 currently</td>
+              </tr>
+              <tr>
+                <td><strong>Instagram presence</strong></td>
+                <td>500+ followers, 8–10 posts live</td>
+                <td>Not started</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Revised Timeline</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Phase</th>
+                <th>Period</th>
+                <th>Milestone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Build</strong></td>
+                <td>June–July 2026</td>
+                <td>Content engine live, partner locked, LinkedIn rebuild</td>
+              </tr>
+              <tr>
+                <td><strong>Demand</strong></td>
+                <td>August 2026</td>
+                <td>40+ waitlist, 200+ right-fit connections</td>
+              </tr>
+              <tr>
+                <td><strong>Launch</strong></td>
+                <td>September 2026</td>
+                <td>Circle 01: 8 seats filled in 72 hours</td>
+              </tr>
+              <tr>
+                <td><strong>Proof</strong></td>
+                <td>October 2026</td>
+                <td>Circle 02 via nomination engine only</td>
+              </tr>
+              <tr>
+                <td><strong>Monetize</strong></td>
+                <td>November 2026</td>
+                <td>First Inner Circle cohort (6 × ₹75K = ₹4.5L/yr)</td>
+              </tr>
+              <tr>
+                <td><strong>Scale</strong></td>
+                <td>Q1 2027</td>
+                <td>2–3 inner circles running = ₹9–13L ARR</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Financial Model (Revised)</h3>
+        <p><strong>Events revenue (steady state, month 6+):</strong><br>
+        2 discovery circles/month × 8 seats × ₹2,999 = ₹48K gross<br>
+        Costs (buffet ×2, misc): ~₹12K<br>
+        <strong>Net: ₹36K/month</strong></p>
+
+        <p><strong>Inner Circle revenue:</strong><br>
+        Circle 1: 6 members × ₹75,000 = ₹4.5L/year<br>
+        Circle 2 (month 8): +₹4.5L/year<br>
+        Circle 3 (month 12): +₹4.5L/year<br>
+        <strong>Target ARR by month 12: ₹13.5L + ₹4.3L events = ₹17.8L</strong></p>
+
+        <p><strong>Business characteristics:</strong></p>
+        <ul>
+          <li>Near-zero marginal cost (venue free, facilitator is founder)</li>
+          <li>High retention (12-month inner circle = sticky revenue)</li>
+          <li>Referral-compounding (nomination engine self-fills from month 3)</li>
+          <li>Sunday-only = no conflict with day job</li>
+        </ul>
+
+        <h3>Competitive Positioning</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Candor</th>
+                <th>InnerTribe</th>
+                <th>YPO</th>
+                <th>Networking Events</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Price</strong></td>
+                <td>₹3K event / ₹75K circle</td>
+                <td>₹1,500–3,000</td>
+                <td>₹5L+/year</td>
+                <td>₹500–2,000</td>
+              </tr>
+              <tr>
+                <td><strong>Format</strong></td>
+                <td>Structured peer protocol</td>
+                <td>Friendship circles</td>
+                <td>Peer advisory</td>
+                <td>Open networking</td>
+              </tr>
+              <tr>
+                <td><strong>Screening</strong></td>
+                <td>Application + nomination</td>
+                <td>Application</td>
+                <td>Revenue gate</td>
+                <td>None</td>
+              </tr>
+              <tr>
+                <td><strong>Advice allowed</strong></td>
+                <td>No — experience only</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td><strong>Size</strong></td>
+                <td>8</td>
+                <td>8–12</td>
+                <td>8</td>
+                <td>30–200</td>
+              </tr>
+              <tr>
+                <td><strong>Positioning</strong></td>
+                <td>Peer counsel for operators</td>
+                <td>Adult friendship</td>
+                <td>CEO peer group</td>
+                <td>Professional connections</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Candor's moat:</strong> The only structured peer advisory format in Bengaluru below YPO's price point, with a research-backed protocol and nomination-only access after Circle 01.</p>
+      </section>
+
+      <!-- Part 2: Assets -->
+      <section class="case-section">
+        <h2>Part 2 — Portfolio of Assets Built</h2>
+        <p>Everything below was built from scratch in this conversation. Zero budget. Production-ready.</p>
+
+        <h3>Visual Identity Assets</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Asset</th>
+                <th>Description</th>
+                <th>Portfolio Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Event Poster</strong></td>
+                <td>1080×1350px, dark minimal, gold accents</td>
+                <td>Visual design, brand identity</td>
+              </tr>
+              <tr>
+                <td><strong>LinkedIn Banner</strong></td>
+                <td>1584×396px, personal profile header</td>
+                <td>Personal branding</td>
+              </tr>
+              <tr>
+                <td><strong>Company Banner</strong></td>
+                <td>1128×191px, company page header</td>
+                <td>Brand consistency</td>
+              </tr>
+              <tr>
+                <td><strong>Company Logo</strong></td>
+                <td>300×300px, "C" mark + wordmark</td>
+                <td>Logo design</td>
+              </tr>
+              <tr>
+                <td><strong>Brand System PDF</strong></td>
+                <td>9-page visual brand book</td>
+                <td>Full brand design</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Strategy Documents</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Asset</th>
+                <th>Description</th>
+                <th>Portfolio Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Brand System</strong></td>
+                <td>Complete design tokens, voice, typography, spacing</td>
+                <td>Design system documentation</td>
+              </tr>
+              <tr>
+                <td><strong>Research Principles</strong></td>
+                <td>Evidence base, protocol design, psychological frameworks</td>
+                <td>Product design + research</td>
+              </tr>
+              <tr>
+                <td><strong>Chat Summary</strong></td>
+                <td>Complete build documentation</td>
+                <td>Project management</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Business Documents</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Asset</th>
+                <th>Description</th>
+                <th>Portfolio Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Psychologist Deck</strong></td>
+                <td>8-slide partnership pitch deck</td>
+                <td>Pitch deck design + BD</td>
+              </tr>
+              <tr>
+                <td><strong>Speaker Notes</strong></td>
+                <td>Complete presentation script</td>
+                <td>Communication design</td>
+              </tr>
+              <tr>
+                <td><strong>Business Plan</strong></td>
+                <td>Full business plan</td>
+                <td>Entrepreneurship</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Part 3: What this adds -->
+      <section class="case-section">
+        <h2>Part 3 — What This Adds to the Portfolio</h2>
+        
+        <h3>As a Professional (Job Applications)</h3>
+        <p>Candor demonstrates skills that don't appear on a typical analytics manager's CV:</p>
+        <ul>
+          <li><strong>Community & Product Design:</strong> Designed a complete community product from zero: user research (40 interviews), protocol design (research synthesis), cohort composition logic, application screening system. This is product management applied to a human experience.</li>
+          <li><strong>GTM Strategy:</strong> Built a complete go-to-market: positioning, channel strategy, distribution mechanics, pricing logic, competitive analysis. Identified why early strategy failed and corrected it. This is real GTM experience, not academic.</li>
+          <li><strong>Brand Design:</strong> Created a complete brand system: color tokens, typography system, voice guidelines, visual identity. Produced production-ready assets. Most analytics professionals have zero design sensibility.</li>
+          <li><strong>Content Strategy:</strong> Designed a 5-pillar LinkedIn content system, wrote 7 production-ready posts, built an engagement growth protocol. Transferable to any B2C or B2B role.</li>
+          <li><strong>Business Development:</strong> Built a partnership pitch deck and recruitment strategy for the psychologist partner. Wrote DM sequences, rejection messages, acceptance flows.</li>
+        </ul>
+
+        <div class="callout">
+          <h3>How to phrase it on a CV:</h3>
+          <p><em>"Founded Candor, an invite-only peer advisory circle for Bengaluru operators. Conducted 40+ user interviews, designed a psychology-backed facilitation protocol (Aron/Yalom/YPO methodology), built complete brand identity, GTM strategy, and partnership pitch deck. Rescheduled launch to September 2026 after identifying distribution gap; rebuilt strategy with correct sequencing."</em></p>
+        </div>
+
+        <h3>As a Builder (Venture Portfolio)</h3>
+        <p>Candor is Ashutosh's 5th live venture alongside:</p>
+        <ul>
+          <li><strong>AaoStays:</strong> Operating (3→30 properties) — Operational scaling, hospitality, Northeast India market</li>
+          <li><strong>DentalFlow AI:</strong> MVP stage — AI product design, healthcare, international market</li>
+          <li><strong>AI Studio:</strong> Concept stage — B2C AI product, resume/career tools</li>
+          <li><strong>MedAxis24:</strong> Concept stage — Healthcare logistics, global patient market</li>
+          <li><strong>Candor:</strong> Pre-launch (built) — Community design, psychology-backed product, premium market</li>
+        </ul>
+
+        <p><strong>What Candor adds to the portfolio specifically:</strong></p>
+        <ul>
+          <li>First B2C premium community product (vs. B2B or platform plays)</li>
+          <li>First psychology-research-backed product</li>
+          <li>First recurring revenue model (events + circle subscription)</li>
+          <li>First brand with a complete visual identity system</li>
+        </ul>
+
+        <h3>As a Case Study (Interviews, Applications)</h3>
+        <p>The Candor story is a strong interview answer for:</p>
+        <p><strong>"Tell me about a time you failed and what you learned"</strong><br>
+        Set Circle 01 date before building distribution. Got zero registrations. Diagnosed: cold channels, wrong demographic, wrong sequencing. Corrected: rebuilt distribution-first model, added milestone gates before rescheduling. Applied systems thinking to own failure.</p>
+        <p><strong>"Tell me about a product you built from scratch"</strong><br>
+        Designed a psychology-backed peer advisory community. Synthesized three research traditions (Aron, Yalom, YPO). Built brand, protocol, financial model, GTM. Validated problem through 40 interviews. Navigated a failed launch and corrected it.</p>
+        <p><strong>"How do you think about GTM for a new product?"</strong><br>
+        Candor launch taught me: distribution must precede the date, not follow it. Warm channels outperform cold 10:1 for high-trust products. Credibility is borrowed before it's earned. Wrong audience kills right messaging.</p>
+      </section>
+
+      <!-- Part 4: Next Priorities -->
+      <section class="case-section">
+        <h2>Part 4 — Next Build Priorities</h2>
+        <p>In order of impact:</p>
+        <ol>
+          <li><strong>Psychologist partner (Week 1):</strong> Use the deck. Get commitment. This is the credibility unlock and co-host pipeline.</li>
+          <li><strong>LinkedIn content engine (Weeks 1–8):</strong> 3 posts/week. 10 comments/day on founder/operator content. 20 targeted connections/day. 60 days rebuilds the account demographic.</li>
+          <li><strong>Waitlist infrastructure (Week 2):</strong> Luma waitlist live. Instagram account created. Both collecting interest passively while content builds.</li>
+          <li><strong>Co-host for Circle 01 (Week 3–4):</strong> A Bengaluru operator/coach/creator with 5–30K following who co-hosts one circle. Their post fills the room.</li>
+          <li><strong>Circle 01 launch (September 2026):</strong> When 5 milestone gates are hit. Event fills in 72 hours when distribution is ready.</li>
+        </ol>
+
+        <div class="callout" style="margin-top: 4rem; text-align: center;">
+          <h3 style="color: var(--accent);">ONE-LINE STATUS</h3>
+          <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text);"><strong>Candor exists as a complete, production-ready brand and product system. The concept is validated. The assets are built. The distribution infrastructure is not. Building that now. Circle 01 in September.</strong></p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div class="container">
+    <div class="case-footer">
+      <span class="case-footer-author">Ashutosh Bhandekar · © 2026</span>
+      <a href="index.html" class="case-footer-back">← Back to Portfolio</a>
+    </div>
+  </div>
+
+</body>
+</html>
