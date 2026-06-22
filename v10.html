@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V10 Trading Intelligence Platform | Ashutosh Bhandekar</title>
+  <meta name="description" content="An institutional-grade automated trading research and operations system combining quantitative research, portfolio management, and risk management.">
+  <meta name="author" content="Ashutosh Bhandekar">
+  <meta property="og:title" content="V10 Trading Intelligence Platform | Ashutosh Bhandekar">
+  <meta property="og:description" content="Discover profitable investment strategies scientifically, validate them rigorously, monitor them continuously, and deploy them safely.">
+  <meta property="og:type" content="article">
+  <link rel="canonical" href="https://abluvsu.github.io/v10.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --bg: #0a0600;
+      --bg-2: #110d04;
+      --bg-card: #161008;
+      --text: #f5f0e8;
+      --text-2: #8a7e6d;
+      --text-3: #5a5044;
+      --accent: #ffb442;
+      --accent-dim: rgba(255,180,66,0.12);
+      --border: rgba(255,180,66,0.10);
+      --border-2: rgba(255,180,66,0.22);
+      --font-d: 'Syne', sans-serif;
+      --font-b: 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--accent); color: var(--bg); }
+    ::-webkit-scrollbar { width: 0; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      background: rgba(10,6,0,0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-family: var(--font-d);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-back {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-2);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .nav-back:hover { color: var(--accent); }
+
+    /* ── CONTAINER ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── HERO ── */
+    .case-hero {
+      padding: 9rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .case-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-b);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+    }
+    .case-label-line {
+      width: 24px; height: 1px; background: var(--accent);
+    }
+    .case-title {
+      font-family: var(--font-d);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .case-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-2);
+      max-width: 680px;
+      line-height: 1.6;
+    }
+    .case-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .meta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .meta-label {
+      font-size: 0.7rem;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .meta-value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ── CONTENT ── */
+    .case-body {
+      padding: 5rem 0;
+    }
+    .case-section {
+      margin-bottom: 5rem;
+    }
+    .case-section h2 {
+      font-family: var(--font-d);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+    }
+    .case-section h3 {
+      font-family: var(--font-b);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .case-section h4 {
+      font-family: var(--font-b);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .case-section p {
+      margin-bottom: 1.5rem;
+      color: var(--text-2);
+    }
+    .case-section ul, .case-section ol {
+      margin-bottom: 2rem;
+      padding-left: 1.2rem;
+      color: var(--text-2);
+    }
+    .case-section li {
+      margin-bottom: 0.5rem;
+    }
+    .case-section strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── BLOCKQUOTE ── */
+    blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 1.5rem 2rem;
+      margin: 2.5rem 0;
+      background: var(--bg-card);
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p {
+      margin: 0;
+      font-family: var(--font-d);
+      font-size: 1.3rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .callout::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 12px 12px 0 0;
+    }
+    .callout h3 { margin-top: 0; margin-bottom: 1rem; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    /* ── TABLES ── */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 2.5rem 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-3);
+      font-weight: 600;
+    }
+    td {
+      font-size: 0.95rem;
+      color: var(--text-2);
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ── FOOTER ── */
+    .case-footer {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .case-footer-author {
+      font-size: 0.85rem;
+      color: var(--text-3);
+    }
+    .case-footer-back {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .case-footer-back:hover {
+      color: var(--text);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .case-title { font-size: 2.2rem; }
+      .case-hero { padding: 7rem 0 3rem; }
+      .case-meta { gap: 1.5rem; flex-direction: column; }
+      .callout { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="index.html" class="nav-brand">AB.</a>
+    <a href="index.html" class="nav-back">Close Case ✕</a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="case-hero">
+    <div class="container">
+      <div class="case-label">
+        <span class="case-label-line"></span> Platform Engineering
+      </div>
+      <h1 class="case-title">V10 Trading Intelligence Platform</h1>
+      <p class="case-subtitle">An institutional-grade automated trading research and operations system bridging quantitative research and safe capital deployment.</p>
+      
+      <div class="case-meta">
+        <div class="meta-group">
+          <span class="meta-label">Domain</span>
+          <span class="meta-value" style="color: var(--accent);">Quantitative Finance</span>
+        </div>
+        <div class="meta-group">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Architect & Builder</span>
+        </div>
+        <div class="meta-group">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">Shadow Trading</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <main class="case-body">
+    <div class="container">
+
+      <!-- Exec Summary -->
+      <div class="callout">
+        <h3>1. Vision</h3>
+        <p>The V10 Trading Intelligence Platform is an institutional-grade automated trading research and operations system.</p>
+        <p>The primary objective is to <strong>discover profitable investment strategies scientifically, validate them rigorously, monitor them continuously, and deploy them safely without risking capital unnecessarily.</strong></p>
+        <p>The platform combines Quantitative Research, Portfolio Management, Risk Management, Market Intelligence, Operations Monitoring, Shadow (Paper) Trading, and Frontend Command Centers into a single integrated ecosystem.</p>
+      </div>
+
+      <section class="case-section">
+        <h2>2. Core Philosophy</h2>
+        <blockquote>
+          <p>Capital protection comes before returns.</p>
+        </blockquote>
+        <p>Every trading idea must survive multiple layers of scientific and operational validation before it is ever allowed to manage real money. Most strategies are intentionally killed. Only the strongest survive.</p>
+      </section>
+
+      <section class="case-section">
+        <h2>3. Major System Components</h2>
+
+        <h3>A. Research Operating System (Research OS)</h3>
+        <p><strong>Purpose:</strong> Discover and scientifically validate trading strategies.</p>
+        <ul>
+          <li>Hypothesis registration & benchmark tournaments</li>
+          <li>Null model testing & statistical significance testing</li>
+          <li>Monte Carlo simulations & bootstrap analysis</li>
+          <li>Factor attribution & experiment tracking</li>
+          <li>Institutional memory & strategy graveyard</li>
+        </ul>
+        <div class="callout" style="padding: 1.5rem; margin-top: 1.5rem;">
+          <p><strong>Example Hypothesis:</strong> "Stocks with strong momentum outperform."<br>
+          <em>The Research OS tests whether this is genuinely true or just random luck.</em></p>
+        </div>
+
+        <h3>B. Institutional Memory Layer</h3>
+        <p><strong>Purpose:</strong> Ensure the firm never repeats mistakes. Stores failed hypotheses, research notes, experiment history, decision journals, lessons learned, and strategy lineage.</p>
+        <div class="callout" style="padding: 1.5rem; margin-top: 1.5rem;">
+          <p><strong>Example:</strong> H002: Volatility Mean Reversion -> Rejected<br>
+          <strong>Reason:</strong> No statistical evidence.<br>
+          Capital saved by rejecting strategy is recorded permanently.</p>
+        </div>
+
+        <h3>C. Intelligence Layer (Market Brain)</h3>
+        <p><strong>Purpose:</strong> Act as the firm's weather station. It never creates trades; instead, it provides context. Tracks news, macro events, market stress, breadth, economic indicators, and event calendar.</p>
+        <p><strong>Outputs:</strong> BULL TREND, RISK OFF, CRISIS, HIGH STRESS.</p>
+
+        <h3>D. Shadow Trading Layer</h3>
+        <p><strong>Purpose:</strong> Trade strategies using fake money before risking real capital.</p>
+        <ul>
+          <li>Signal generation & paper broker</li>
+          <li>Portfolio tracking & execution simulation</li>
+          <li>Trade journaling & risk enforcement</li>
+        </ul>
+
+        <h3>E. Risk Management Engine</h3>
+        <p><strong>Purpose:</strong> Prevent catastrophic losses. If risk becomes excessive, the system automatically blocks trades.</p>
+        <ul>
+          <li>Maximum position size & maximum drawdown</li>
+          <li>Portfolio exposure limits & kill switches</li>
+          <li>Volatility limits & crisis mode</li>
+        </ul>
+
+        <h3>F. Operations Layer (NOC)</h3>
+        <p><strong>Purpose:</strong> Continuously monitor the health of the entire firm. Equivalent to a Network Operations Center used by large technology companies.</p>
+        <ul>
+          <li><strong>Monitors:</strong> APIs, Scheduler, Dashboard, Snapshots, Processes, Cache, Disk space, Alerts.</li>
+          <li><strong>Features:</strong> Self-healing, Recovery engine, Supervisor, Telemetry, Alert escalation.</li>
+        </ul>
+
+        <h3>G. Snapshot Architecture</h3>
+        <p><strong>Purpose:</strong> Decouple computation from visualization.</p>
+        <p><strong>Process:</strong> Scheduler → Snapshot Builder → JSON snapshots → FastAPI → Frontend</p>
+        <p><strong>Benefits:</strong> Fast UI, reliable APIs, replay mode, historical analysis, lower cloud costs.</p>
+
+        <h3>H. Frontend Glass Cockpit</h3>
+        <p>Built using Next.js 15, React, TypeScript, React Query, Zustand, ECharts, Shadcn UI.</p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Module</th>
+                <th>Function</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Dashboard</strong></td>
+                <td>Executive overview. Firm Health, Alerts, Market Regime, Shadow/Ops Status.</td>
+              </tr>
+              <tr>
+                <td><strong>Research OS</strong></td>
+                <td>Scientific workstation for research.</td>
+              </tr>
+              <tr>
+                <td><strong>Shadow Trading OS</strong></td>
+                <td>Portfolio and execution monitoring.</td>
+              </tr>
+              <tr>
+                <td><strong>Operations NOC</strong></td>
+                <td>Infrastructure command center.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2>4. Research Achievements</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Hypothesis</th>
+                <th>Name</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>H001</strong></td>
+                <td>FII Flow Hypothesis</td>
+                <td>Rejected.</td>
+              </tr>
+              <tr>
+                <td><strong>H002</strong></td>
+                <td>Volatility Mean Reversion</td>
+                <td>Rejected.</td>
+              </tr>
+              <tr>
+                <td><strong>H003</strong></td>
+                <td>Volatility Momentum</td>
+                <td>Rejected.</td>
+              </tr>
+              <tr>
+                <td><strong>H005</strong></td>
+                <td>Trend Following Benchmark Suite</td>
+                <td>Rejected after null models.</td>
+              </tr>
+              <tr>
+                <td><strong>H006</strong></td>
+                <td>Cross-Sectional Momentum</td>
+                <td><span style="color: #22c55e; font-weight: 600;">Passed null models & institutional validation.</span> Currently operating in Shadow mode.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2>5. Governance Framework</h2>
+        <p>Every strategy must pass strict tollgates. Only after clearing all stages can live deployment even be considered:</p>
+        <ol>
+          <li>Research</li>
+          <li>Benchmark Tournament</li>
+          <li>Null Models</li>
+          <li>Validation Tournament</li>
+          <li>Promotion Committee</li>
+          <li>Shadow Trading</li>
+          <li>Operational Validation</li>
+        </ol>
+      </section>
+
+      <section class="case-section">
+        <h2>6. Technology Stack</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Layer</th>
+                <th>Technologies</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Backend</strong></td>
+                <td>Python, FastAPI, APScheduler, Pandas, Parquet, DiskCache</td>
+              </tr>
+              <tr>
+                <td><strong>Frontend</strong></td>
+                <td>Next.js 15, React, TypeScript, Tailwind, Shadcn, React Query, Zustand, ECharts</td>
+              </tr>
+              <tr>
+                <td><strong>Infrastructure</strong></td>
+                <td>Hugging Face Spaces, Vercel, GitHub Actions</td>
+              </tr>
+              <tr>
+                <td><strong>Data</strong></td>
+                <td>NSE, Yahoo Finance, News APIs, RSS, Firecrawl</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2>7. Final Outcome</h2>
+        <div class="callout" style="text-align: center;">
+          <h3 style="color: var(--accent);">STATUS: INSTITUTIONAL RESEARCH & SHADOW TRADING PLATFORM</h3>
+          <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text);">The platform has evolved from a simple trading bot into a complete digital investment firm capable of autonomous research, scientific validation, simulated trading operations, and resilient self-healing.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div class="container">
+    <div class="case-footer">
+      <span class="case-footer-author">Ashutosh Bhandekar · © 2026</span>
+      <a href="index.html" class="case-footer-back">← Back to Portfolio</a>
+    </div>
+  </div>
+
+</body>
+</html>
