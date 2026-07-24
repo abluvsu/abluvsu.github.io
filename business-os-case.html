@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business OS | Ashutosh Bhandekar</title>
+  <meta name="description" content="A local-first, privacy-respecting AI workspace that helps solo founders understand their marketing through conversation.">
+  <meta name="author" content="Ashutosh Bhandekar">
+  <meta property="og:title" content="Business OS | Ashutosh Bhandekar">
+  <meta property="og:description" content="Local-first AI Chief of Staff for solo founders. Chat with your business context, get charts + plain-language insights — all running 100% on your machine.">
+  <meta property="og:type" content="article">
+  <link rel="canonical" href="https://abluvsu.github.io/business-os-case.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --bg: #0a0600;
+      --bg-2: #110d04;
+      --bg-card: #161008;
+      --text: #f5f0e8;
+      --text-2: #8a7e6d;
+      --text-3: #5a5044;
+      --accent: #ffb442;
+      --accent-dim: rgba(255,180,66,0.12);
+      --border: rgba(255,180,66,0.10);
+      --border-2: rgba(255,180,66,0.22);
+      --font-d: 'Syne', sans-serif;
+      --font-b: 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--accent); color: var(--bg); }
+    ::-webkit-scrollbar { width: 0; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      background: rgba(10,6,0,0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-family: var(--font-d);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-back {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-2);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+    }
+    .nav-back:hover { color: var(--accent); }
+
+    /* ── CONTAINER ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── HERO ── */
+    .case-hero {
+      padding: 9rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .case-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-b);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+    }
+    .case-label-line {
+      width: 24px; height: 1px; background: var(--accent);
+    }
+    .case-title {
+      font-family: var(--font-d);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .case-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-2);
+      max-width: 680px;
+      line-height: 1.6;
+    }
+    .case-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .meta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .meta-label {
+      font-size: 0.7rem;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .meta-value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ── CONTENT ── */
+    .case-body {
+      padding: 5rem 0;
+    }
+    .case-section {
+      margin-bottom: 5rem;
+    }
+    .case-section h2 {
+      font-family: var(--font-d);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+    }
+    .case-section h3 {
+      font-family: var(--font-b);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .case-section h4 {
+      font-family: var(--font-b);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .case-section p {
+      margin-bottom: 1.5rem;
+      color: var(--text-2);
+    }
+    .case-section ul, .case-section ol {
+      margin-bottom: 2rem;
+      padding-left: 1.2rem;
+      color: var(--text-2);
+    }
+    .case-section li {
+      margin-bottom: 0.5rem;
+    }
+    .case-section strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── BLOCKQUOTE ── */
+    blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 1.5rem 2rem;
+      margin: 2.5rem 0;
+      background: var(--bg-card);
+      border-radius: 0 8px 8px 0;
+    }
+    blockquote p {
+      margin: 0;
+      font-family: var(--font-d);
+      font-size: 1.3rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .callout::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 12px 12px 0 0;
+    }
+    .callout h3 { margin-top: 0; margin-bottom: 1rem; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    /* ── TABLES ── */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 2.5rem 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-3);
+      font-weight: 600;
+    }
+    td {
+      font-size: 0.95rem;
+      color: var(--text-2);
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ── FOOTER ── */
+    .case-footer {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .case-footer-author {
+      font-size: 0.85rem;
+      color: var(--text-3);
+    }
+    .case-footer-back {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .case-footer-back:hover {
+      color: var(--text);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .case-title { font-size: 2.2rem; }
+      .case-hero { padding: 7rem 0 3rem; }
+      .case-meta { gap: 1.5rem; flex-direction: column; }
+      .callout { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="index.html" class="nav-brand">AB.</a>
+    <a href="index.html" class="nav-back">Close Case ✕</a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="case-hero">
+    <div class="container">
+      <div class="case-label">
+        <span class="case-label-line"></span> Full-Stack AI
+      </div>
+      <h1 class="case-title">Business OS</h1>
+      <p class="case-subtitle">A local-first, privacy-respecting AI Chief of Staff. Connect marketing data and chat with your business context—all running 100% on your machine.</p>
+      
+      <div class="case-meta">
+        <div class="meta-group">
+          <span class="meta-label">Domain</span>
+          <span class="meta-value" style="color: var(--accent);">AI & Productivity</span>
+        </div>
+        <div class="meta-group">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Architect & Builder</span>
+        </div>
+        <div class="meta-group">
+          <span class="meta-label">Status</span>
+          <span class="meta-value">MVP Foundation</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <main class="case-body">
+    <div class="container">
+
+      <!-- Exec Summary -->
+      <div class="callout">
+        <h3>The Vision</h3>
+        <p>Solo founders run marketing across too many disconnected tools (Instagram, Gmail, Google Ads, GA). They get overwhelmed by complex dashboards and have no one to ask for clear answers. Furthermore, they fear losing control over their sensitive business data to unknown cloud vendors.</p>
+        <p><strong>Business OS solves this.</strong> It connects to your accounts via OAuth, normalizes everything into a canonical domain model, and lets you chat with an AI that only sees your structured, validated data. The entire workspace operates as a Local-First application powered by SQLite.</p>
+      </div>
+
+      <section class="case-section">
+        <h2>Key Features</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>🔒 Local-First</strong></td>
+                <td>SQLite database on your machine. Zero cloud dependency.</td>
+              </tr>
+              <tr>
+                <td><strong>🧠 Trust Pipeline</strong></td>
+                <td>6-stage ingestion (Adapter → Validate → Normalize → Persist). Bad data never reaches the LLM.</td>
+              </tr>
+              <tr>
+                <td><strong>💬 Conversation-First UX</strong></td>
+                <td>Chat interface. Ask "Why did CPA spike?" → get a chart + 2-sentence insight + actionable recommendations.</td>
+              </tr>
+              <tr>
+                <td><strong>📊 Canonical Domain Model</strong></td>
+                <td>Platform-agnostic normalization (e.g. mapping Instagram and Google Ads spend into unified TimeSeriesMetrics).</td>
+              </tr>
+              <tr>
+                <td><strong>⚡ Dual-LLM Fallback</strong></td>
+                <td>Primary OpenRouter integration with fallback provider and local heuristic logic.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2>System Architecture</h2>
+        <blockquote>
+          <p>Decoupled multi-process monorepo combining highly responsive UIs with heavy backend ingestion pipelines.</p>
+        </blockquote>
+        <p>The architecture is built to withstand high concurrency from multiple data syncs while maintaining a snappy frontend chat experience. It separates concerns across two main applications running in parallel.</p>
+        
+        <h3>The Stack</h3>
+        <ul>
+          <li><strong>Frontend (Web):</strong> Next.js 14, Tailwind CSS v4, React, ECharts, running on port 3000.</li>
+          <li><strong>Backend (Server):</strong> Fastify HTTP/WebSocket API running on port 4000. Powers the Trust Pipeline, Brain Interface, and Analytics Event Bus.</li>
+          <li><strong>Database:</strong> Workspace-isolated local SQLite databases via native <code>node:sqlite</code> and Drizzle ORM.</li>
+          <li><strong>Package Manager:</strong> pnpm workspaces for managing 8+ distinct internal packages (connector-sdk, brain-sdk, context-engine, etc.).</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>Engineering Culture & Quality</h2>
+        <p>The project is governed by strict, enterprise-grade engineering practices designed for long-term maintainability.</p>
+        <ul>
+          <li><strong>ADR Enforcement:</strong> Architectural Decision Records (ADRs) are required for all major design choices.</li>
+          <li><strong>Strict Tooling:</strong> TypeScript strict mode, Markdownlint, Commitlint (Conventional Commits), and Husky pre-commit hooks.</li>
+          <li><strong>Automated Validation:</strong> Custom CLIs (<code>pnpm validate:adrs</code>, <code>validate:docs</code>, <code>validate:context</code>) verify documentation freshness, vocabulary usage, and cross-referencing.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>Final Outcome</h2>
+        <div class="callout" style="text-align: center;">
+          <h3 style="color: var(--accent);">STATUS: SOLIDIFIED MVP FOUNDATION</h3>
+          <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text);">The foundation for a highly scalable, local-first application has been laid out. The architecture handles modular connectors, protects sensitive data locally, and orchestrates an AI conversation layer capable of delivering real business insights without hallucinating on raw API payloads.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div class="container">
+    <div class="case-footer">
+      <span class="case-footer-author">Ashutosh Bhandekar · © 2026</span>
+      <a href="index.html" class="case-footer-back">← Back to Portfolio</a>
+    </div>
+  </div>
+
+</body>
+</html>
